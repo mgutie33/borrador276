@@ -1,0 +1,786 @@
+{{ form_start(form1, { 'attr' : {'novalidate': 'novalidate', 'role' : 'form', 'id': id1|default('form')} }) }}
+
+{{ form_end(form1) }}
+
+{{ form_start(form2, { 'attr' : {'novalidate': 'novalidate', 'role' : 'form', 'id': id2|default('form')} }) }}
+
+{{ form_end(form2) }}
+
+{{ form_start(form3, { 'attr' : {'novalidate': 'novalidate', 'role' : 'form', 'id': id3|default('form')} }) }}
+
+{{ form_end(form3) }}
+
+{{ form_start(form4, { 'attr' : {'novalidate': 'novalidate', 'role' : 'form', 'id': id4|default('form')} }) }}
+
+{{ form_end(form4) }}
+
+{{ form_start(form5, { 'attr' : {'novalidate': 'novalidate', 'role' : 'form', 'id': id5|default('form')} }) }}
+
+{{ form_end(form5) }}
+
+{{ form_start(form6, { 'attr' : {'novalidate': 'novalidate', 'role' : 'form', 'id': id6|default('form')} }) }}
+
+{{ form_end(form6) }}
+
+<!-- Large modal -->
+
+<script>
+    $(function () {
+        $("#birthday").datepicker();
+    });
+</script>
+
+{{ include('BeitechBundle:Default:uploadProduct.html.twig') }}
+
+{#<button type="button" id="btn-logOut" class="btn btn-primary" data-target=".bs-example-modal-lg" style="display:none;" onClick="logOut();">LO</button>
+<button type="button" id="btn-logIn" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg" onClick="changeLogIn();">LI</button>
+#}
+
+
+{#        <table id="loginTable" border="0" width="100%">
+            <tr>
+                <td>Username
+                <td align="right"><input type="text" id="user_name" name="keyword" size="22"/>
+            </tr>
+            <tr>
+                <td>Password
+                <td align="right"><input type="password" id="password" name="keyword" size="22"/>
+            </tr>
+        </table>#}
+
+
+
+
+
+<div class="updateDiv"
+     style="background-color: blue;
+     width: 250px;
+     height: 100%;
+     {#display: none;#}">
+
+    <div class="modal-header"
+         style="background-color: green;
+         width: 250px;
+         height: 10%;">
+        <table id="loginButtonsTable" border="0" width="100%" {#style="display: none;"#}>
+            <tr>
+                <td align="left">
+                    <button type="button" class="btn btn-default btn-sign-up" onClick="changeSignUp();">SIGN UP</button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-primary" id="buttonLogIn2" onClick="loginData();">GO</button>
+                </td>
+            </tr>
+        </table>
+        <table id="signUpButtonsTable" border="0" width="100%" {#style="display: none;"#}>
+            <tr>
+                <td align="left">
+                    <button type="button" class="btn btn-default btn-log-in" {#style="visibility: hidden;"#} onClick="changeLogIn();">LOG IN</button>
+                </td>
+                <td>
+                    <button type="button" id="buttonSignUp" class="btn btn-primary" onClick="introduceData();">GO</button>
+                </td>
+            </tr>
+        </table>
+    </div> {#fin primer div#}
+    <div 
+        style="background-color: red;
+        width: 250px;
+        height: 40%;">
+        <div id="loginTable" {#style="display: none;"#}>
+            <input type="text" id="user_name" name="keyword" size="17" placeholder="Username"/>
+            <input type="password" id="password" name="keyword" size="17" placeholder="Password"/>
+        </div>
+        <div id="signUpTable" {#style="display: none;"#}>
+            <input type="text" id="user_name22" name="keyword" size="17" placeholder="Username"/>
+            <input type="text" id="first_name" name="keyword" size="17" placeholder="First name"/>
+            <input type="text" id="last_name" name="keyword" size="17" placeholder="Last name"/>
+            <input type="text" id="mobile_number" name="keyword" size="17" placeholder="Mobile number"/>
+            <input type="password" id="password22" name="keyword" size="17" placeholder="Password"/>
+            <input type="text" id="birthday" size="17" onclick="setDateBirthday();" placeholder="Birthday">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="optionsRadios" id="femaleGenre" value="option1" checked>
+                    F
+                </label>
+                <label>
+                    <input type="radio" name="optionsRadios" id="maleGenre" value="option2">
+                    M
+                </label>
+            </div>
+        </div>
+        {#<table id="loginTable" border="0" width="100%" style="display: none;">
+            <tr>
+                <td>Username
+                <td align="right"><input type="text" id="user_name" name="keyword" size="17"/>
+            </tr>
+            <tr>
+                <td>Password
+                <td align="right"><input type="password" id="password" name="keyword" size="17"/>
+            </tr>
+        </table>#}
+        {#<table id="signUpTable" border="0" width="100%" style="display: none;">
+            <tr>
+                <td>
+                    User name
+                </td>
+                <td align="right">
+                    <input type="text" id="user_name22" name="keyword" size="17"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    First name
+                </td>
+                <td align="right">
+                    <input type="text" id="first_name" name="keyword" size="17"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Last name
+                </td>
+                <td align="right">
+                    <input type="text" id="last_name" name="keyword" size="17"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Mobile number
+                </td>
+                <td align="right">
+                    <input type="text" id="mobile_number" name="keyword" size="17"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Password
+                </td>
+                <td align="right">
+                    <input type="password" id="password22" name="keyword" size="17"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Birthday
+                </td>
+                <td align="right">
+                    <input type="text" id="birthday" size="17" onclick="setDateBirthday();">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="optionsRadios" id="femaleGenre" value="option1" checked>
+                            Female
+                        </label>
+                    </div>
+                <td>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="optionsRadios" id="maleGenre" value="option2">
+                            Male
+                        </label>
+                    </div>
+            </tr>
+        </table>#}
+    </div> {#fin segundo div#}
+
+    <div 
+        style="background-color: blue;
+        width: 250px;
+        height: 50%;
+        {#display: none;#}">
+        <form id="updateVideo">
+
+            <input type="text" id="product_name" name="product_name" size="17" placeholder="Product name"/>
+            <input type="text" id="product_description" name="product_description" size="17" placeholder="Product description"/>
+            <input type="text" id="product_price" name="product_price" size="17" placeholder="Product price"/>
+            <input name="product_video" id="product_video" type="file" />
+            <input name="product_image" id="product_image" type="file" />
+            
+            {#<div style="display:none;">
+                <p>id</p><label id="user_id_login" name="user_id_login">id</label>
+                <p>username</p><label id="user_username_login" name="user_username_login">username</label>
+                <input type="text" id="user_id_login_input" name="user_id_login_input" size="17" value="69"/>
+            </div>
+            <table border="1" width="100%" style="display: none;">
+                <tr>
+                    <td colspan="2">
+                        <label>Information about the product</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>name</label>
+                    <td align="right"><input type="text" id="product_name" name="product_name" size="7"/>
+                </tr>
+                <tr>
+                    <td><label>description</label>
+                    <td align="right"><input type="text" id="product_description" name="product_description" size="7"/>
+                </tr>
+                <tr>
+                    <td><label>price</label>
+                    <td align="right"><input type="text" id="product_price" name="product_price" size="7"/>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label>Video:</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input name="product_video" id="product_video" type="file" />
+                    <td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label>Image:</label>
+                    </td>
+                <tr>
+                    <td colspan="2">
+                        <input name="product_image" id="product_image" type="file" />
+                    <td>
+                </tr>
+            </table>#}
+        </form>
+        <hr>
+        <div id="updateKeywords">
+            <input type="text" id="keywordOne" name="keywordOne" size="4"/>
+            <input type="text" id="keywordTwo" name="keywordTwo" size="4"/>
+            <input type="text" id="keywordThree" name="keywordThree" size="4"/>
+            <input type="text" id="keywordFour" name="keywordFour" size="4"/>
+            <input type="text" id="keywordFive" name="keywordFive" size="4"/>
+            <button type="button" class="btn btn-primary" id="buttonUploadProduct" onClick="uploadProduct();">UPLOAD</button>
+            
+{#            <table border="0" width="100%">
+                <tr>
+                    <td colspan="5"><label>Keywords</label>
+                </tr>
+                <tr>
+                    <td><input type="text" id="keywordOne" name="keywordOne" size="5"/>
+                    <td><input type="text" id="keywordTwo" name="keywordTwo" size="5"/>
+                    <td><input type="text" id="keywordThree" name="keywordThree" size="5"/>
+                    <td><input type="text" id="keywordFour" name="keywordFour" size="5"/>
+                    <td><input type="text" id="keywordFive" name="keywordFive" size="5"/>
+                </tr>
+            </table>#}
+        </div>
+
+{#        <div class="modal-footer">
+            <table border="0" width="100%">
+                <tr>
+                    <td>
+                        <p><button type="button" class="btn btn-primary" id="buttonUploadProduct" onClick="uploadProduct();">UPLOAD</button></p>
+                    </td>
+                </tr>
+            </table>
+        </div>#}
+    </div> {#fin tercer div#}  
+
+</div>
+
+
+
+
+
+
+
+<script>
+    var loginButton = document.getElementById('logInButton');
+    var logInForm = document.getElementById('logInForm');
+
+    loginButton.addEventListener("click", login, false);
+
+    function login()
+    {
+        alert("45678988");
+        if (logInForm.style.display === "none")
+        {
+            logInForm.style.display = "inline";
+        } else if (logInForm.style.display === "inline")
+        {
+            logInForm.style.display = "none";
+        }
+    }
+</script>
+
+<div class="modal fade uploadProduct" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog" role="document" style="width: 500px;">
+        <div class="modal-content">
+            <div class="logInDiv">
+                {#si te vas#}
+                <div class="updateDiv">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">UPLOAD PRODUCT</h4>
+                    </div>
+
+                    <form id="updateVideo">
+                        <div style="display:none;">
+                            <p>id</p><label id="user_id_login" name="user_id_login">id</label>
+                            <p>username</p><label id="user_username_login" name="user_username_login">username</label>
+                            <input type="text" id="user_id_login_input" name="user_id_login_input" size="27" value="69" {#disabled="true"#}/>
+                        </div>
+                        <table border="0" width="100%">
+                            <tr>
+                                <td><label>Product name</label>
+                                <td align="right"><input type="text" id="product_name" name="product_name" size="27"/>
+                            </tr>
+                            <tr>
+                                <td><label>Product description</label>
+                                <td align="right"><input type="text" id="product_description" name="product_description" size="27"/>
+                            </tr>
+                            <tr>
+                                <td><label>Product price</label>
+                                <td align="right"><input type="text" id="product_price" name="product_price" size="27"/>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>Video:</label>
+                                <td>
+                                    <input name="product_video" id="product_video" type="file" />
+                                <td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>Image:</label>
+                                <td>
+                                    <input name="product_image" id="product_image" type="file" />
+                                <td>
+                            </tr>
+                        </table>
+                    </form>
+                    <hr>
+                    <div id="updateKeywords">
+                        <table border="0" width="100%">
+                            <tr>
+                                <td colspan="5"><label>Keywords</label>
+                            </tr>
+                            <tr>
+                                <td><input type="text" id="keywordOne" name="keywordOne" size="5"/>
+                                <td><input type="text" id="keywordTwo" name="keywordTwo" size="5"/>
+                                <td><input type="text" id="keywordThree" name="keywordThree" size="5"/>
+                                <td><input type="text" id="keywordFour" name="keywordFour" size="5"/>
+                                <td><input type="text" id="keywordFive" name="keywordFive" size="5"/>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="modal-footer">
+                        <table border="0" width="100%">
+                            <tr>
+                                <td>
+                                    <p><button type="button" class="btn btn-primary" id="buttonUploadProduct" onClick="uploadProduct();">UPLOAD</button></p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog" role="document" style="width: 300px;">
+        <div class="modal-content">
+            <div class="logInDiv">
+                <div class="updateDiv">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">LOG IN</h4>
+                    </div>
+                    <div>
+                        <table id="loginTable" border="0" width="100%" {#style="display: none;"#}>
+                            <tr>
+                                <td>Username
+                                <td align="right"><input type="text" id="user_name" name="keyword" size="27"/>
+                            </tr>
+                            <tr>
+                                <td>Password
+                                <td align="right"><input type="password" id="password" name="keyword" size="27"/>
+                            </tr>
+                        </table>
+                        <table id="signUpTable" border="0" width="100%" {#style="display: none;"#}>
+                            <tr>
+                                <td>
+                                    User name
+                                </td>
+                                <td align="right">
+                                    <input type="text" id="user_name22" name="keyword" size="27"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    First name
+                                </td>
+                                <td align="right">
+                                    <input type="text" id="first_name" name="keyword" size="27"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Last name
+                                </td>
+                                <td align="right">
+                                    <input type="text" id="last_name" name="keyword" size="27"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Mobile number
+                                </td>
+                                <td align="right">
+                                    <input type="text" id="mobile_number" name="keyword" size="27"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Password
+                                </td>
+                                <td align="right">
+                                    <input type="password" id="password22" name="keyword" size="27"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Birthday
+                                </td>
+                                <td align="right">
+                                    <input type="text" id="birthday" size="27" onclick="setDateBirthday();">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="optionsRadios" id="femaleGenre" value="option1" checked>
+                                            Female
+                                        </label>
+                                    </div>
+                                <td>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="optionsRadios" id="maleGenre" value="option2">
+                                            Male
+                                        </label>
+                                    </div>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <table id="loginButtonsTable" border="0" width="100%" {#style="display: none;"#}>
+                            <tr>
+                                <td align="left">
+                                    <button type="button" class="btn btn-default btn-sign-up" onClick="changeSignUp();">SIGN UP</button>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-primary" id="buttonLogIn2" onClick="loginData();">GO</button>
+                                </td>
+                            </tr>
+                        </table>
+                        <table id="signUpButtonsTable" border="0" width="100%" {#style="display: none;"#}>
+                            <tr>
+                                <td align="left">
+                                    <button type="button" class="btn btn-default btn-log-in" {#style="visibility: hidden;"#} onClick="changeLogIn();">LOG IN</button>
+                                </td>
+                                <td>
+                                    <button type="button" id="buttonSignUp" class="btn btn-primary" onClick="introduceData();">GO</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade signupUser" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog" role="document" style="width: 300px;">
+        <div class="modal-content">
+            <div class="logInDiv">
+
+                <div class="updateDiv" id="ventana22">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">SIGN UP</h4>
+                    </div>
+                    <div>
+                        <table border="0" width="100%">
+
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function loginData() {
+        var form = $('#login-user-data-ajax');
+        var url = form.attr('action');
+
+        var user_name = document.getElementById('user_name').value;
+        var password = document.getElementById('password').value;
+
+        var dd = document.getElementById("buttonLogIn2");
+
+        if (!user_name || !password) {
+            alert("You need to introduce all information");
+
+            dd.removeAttribute("data-dismiss");
+
+        } else {
+            $.post(url, {user_name: user_name, password: password}, function (data)
+            {
+                var id = data[0]['id'];
+                var userName = data[0]['userName'];
+
+                if (id === '0' || userName === '0')
+                {
+                    dd.removeAttribute("data-dismiss");
+                    console.log("incorrect information, you can not login");
+                } else
+                {
+                    $('#myModal').modal('hide');
+                    console.log("correct information, you can login22");
+                    openSesion(id, userName);
+                }
+            }).fail(function () {
+                alert('ERROR');
+            });
+        }
+    }
+
+    function introduceData()
+    {
+        console.log("Introduce data");
+
+        var form = $('#introduce-user-data-ajax');
+        var url = form.attr('action');
+
+        var user_name22 = document.getElementById('user_name22').value;
+        var first_name = document.getElementById('first_name').value;
+        var last_name = document.getElementById('last_name').value;
+        var mobile_number = document.getElementById('mobile_number').value;
+        var password22 = document.getElementById('password22').value;
+        var birthday = document.getElementById('birthday').value;
+
+        var femaleGenre = document.getElementById('femaleGenre');
+        var maleGenre = document.getElementById('maleGenre');
+
+        var genre = "";
+
+        if (!user_name22 || !first_name || !last_name || !mobile_number || !password22 || !birthday) {
+            alert("You need to introduce all information22");
+
+            console.log("user_name " + user_name22);
+            console.log("first_name " + first_name);
+            console.log("last_name " + last_name);
+            console.log("mobile_number " + mobile_number);
+            console.log("password " + password22);
+            console.log("birthday " + birthday);
+            console.log("femaleGenre " + femaleGenre);
+            console.log("maleGenre " + maleGenre);
+
+            var d = document.getElementById("buttonSignUp");
+            d.removeAttribute("data-dismiss");
+
+        } else {
+
+            console.log("user_name " + user_name22);
+            console.log("first_name " + first_name);
+            console.log("last_name " + last_name);
+            console.log("mobile_number " + mobile_number);
+            console.log("password " + password22);
+            console.log("birthday " + birthday);
+            console.log("femaleGenre " + femaleGenre);
+            console.log("maleGenre " + maleGenre);
+
+            if (femaleGenre.checked) {
+                console.log("female");
+                genre = "f";
+            } else if (maleGenre.checked) {
+                console.log("male");
+                genre = "m";
+            }
+
+            $.post(url, {user_name: user_name22,
+                first_name: first_name,
+                last_name: last_name,
+                mobile_number: mobile_number,
+                password: password22,
+                birthday: birthday,
+                genre: genre
+            }, function (result) {
+
+            }).fail(function () {
+                alert('ERROR');
+            });
+
+            var d = document.getElementById("buttonSignUp");
+            d.setAttribute("data-dismiss", "modal");
+        }
+    }
+
+    function openSesion(Id, Username)
+    {
+        console.log("function openSesion");
+        document.getElementById('user_id_login').innerHTML = Id;
+        document.getElementById('user_username_login').innerHTML = Username;
+
+        document.getElementById('user_id_login_input').value = Id;
+
+        var user_id = document.getElementById('user_id_login').innerHTML;
+        var user_username = document.getElementById('user_username_login').innerHTML;
+
+        console.log(user_id);
+        console.log(user_username);
+
+        $('#btn-logIn').hide();
+        $('#btn-uploadProduct').show();
+        $('#btn-logOut').show();
+    }
+
+    function uploadProduct()
+    {
+
+        console.log("function uploadProduct");
+        var form = $('#upload-product-ajax');
+        var url = form.attr('action');
+
+        product_name = document.getElementById('product_name').value;
+        product_description = document.getElementById('product_description').value;
+        product_price = document.getElementById('product_price').value;
+        product_video = document.getElementById('product_video').value;
+        product_image = document.getElementById('product_image').value;
+
+        var user_id = document.getElementById('user_id_login').innerHTML;
+        var user_username = document.getElementById('user_username_login').innerHTML;
+
+        if (!product_name || !product_description || !product_price || !product_image || !product_video) {
+            alert("You need to introduce all information");
+
+        } else {
+
+            var formData = new FormData($("#updateVideo")[0]);
+            var a = 2;
+
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: formData,
+                cache: false,
+                processData: false,
+                contentType: false
+            }).done(function (resp) {
+
+    {#                'product_id' => $product->getId(),
+                    'product_name' => $product->getName(),
+                    'product_description' => $product->getDescription(),
+                    'product_price' => $product->getPrice(),
+                    'product_image1' => $product->getImagePart1(),
+                    'product_image2' => $product->getImagePart2(),
+                    'product_image22' => $product_image22,
+                    'user_id_login22' => $user_id_login22#}
+
+                                    console.log("product_id" + resp[0].product_id);
+                                    console.log("product_name" + resp[0].product_name);
+                                    console.log("product_description" + resp[0].product_description);
+                                    console.log("product_price" + resp[0].product_price);
+                                    console.log("product_video" + resp[0].product_video);
+                                    console.log("product_image" + resp[0].product_image);
+
+                                    uploadKeywords(resp[0].product_id);
+                                });
+
+                                var d = document.getElementById("buttonUploadProduct");
+                                d.setAttribute("data-dismiss", "modal");
+                            }
+                        }
+
+                        function uploadKeywords(productId)
+                        {
+                            console.log("function upload keywords");
+                            var form = $('#upload-keywords-ajax');
+                            var url = form.attr('action');
+
+                            var keywordOne = document.getElementById('keywordOne').value;
+                            var keywordTwo = document.getElementById('keywordTwo').value;
+                            var keywordThree = document.getElementById('keywordThree').value;
+                            var keywordFour = document.getElementById('keywordFour').value;
+                            var keywordFive = document.getElementById('keywordFive').value;
+
+                            if (!keywordOne || !keywordTwo || !keywordThree || !keywordFour || !keywordFive) {
+                                alert("You need to introduce all information");
+                            } else {
+                                $.post(url, {keywordOne: keywordOne,
+                                    keywordTwo: keywordTwo,
+                                    keywordThree: keywordThree,
+                                    keywordFour: keywordFour,
+                                    keywordFive: keywordFive,
+                                    productId: productId
+                                }, function (result) {
+                                    console.log("variable1... " + result[0].variable1);
+                                    console.log("variable2... " + result[0].variable2);
+                                    console.log("variable3... " + result[0].variable3);
+                                    console.log("variable4... " + result[0].variable4);
+                                    console.log("variable5... " + result[0].variable5);
+                                    result[0].variable;
+                                }).fail(function () {
+                                    alert('ERROR');
+                                });
+                            }
+                        }
+
+                        function uploadAvailability() {
+                            console.log("upload availability");
+
+                            var form = $('#upload-availability-ajax');
+                            var url = form.attr('action');
+
+                            $.post(url, function (result) {
+
+                            }).fail(function () {
+                                alert('ERROR');
+                            });
+                        }
+
+                        function logOut() {
+                            document.getElementById('user_id_login').innerHTML = "id";
+                            document.getElementById('user_username_login').innerHTML = "username";
+
+                            var user_id = document.getElementById('user_id_login').innerHTML;
+                            var user_username = document.getElementById('user_username_login').innerHTML;
+
+                            console.log(user_id);
+                            console.log(user_username);
+
+                            $('#btn-logIn').show();
+                            $('#btn-uploadProduct').hide();
+                            $('#btn-logOut').hide();
+                        }
+
+                        function changeSignUp() {
+                            console.log("changeSignUp");
+                            document.getElementById('loginTable').hidden = true;
+                            document.getElementById('loginButtonsTable').hidden = true;
+                            document.getElementById('signUpTable').hidden = false;
+                            document.getElementById('signUpButtonsTable').hidden = false;
+                        }
+
+                        function changeLogIn() {
+                            console.log("changeLogIn");
+                            document.getElementById('signUpTable').hidden = true;
+                            document.getElementById('signUpButtonsTable').hidden = true;
+                            document.getElementById('loginTable').hidden = false;
+                            document.getElementById('loginButtonsTable').hidden = false;
+                        }
+</script>

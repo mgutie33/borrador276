@@ -1,0 +1,157 @@
+{% extends '::layout.html.twig' %}
+{% block body %}
+    {{ parent() }}
+
+    <style>
+        div#logInFrame {
+            background-color: green;
+            width: 35px;
+            height: 35px;
+        }
+
+        div#categoriesIdFrame {
+            top: 0px;
+            left: 0px;
+            background-color: pink;
+            width: 35px;
+            height: 35px;
+
+        }
+
+        div#categoriesId {
+            z-index: 1;
+        }
+
+        div#logInForm {
+            top: 35px;
+            left: -250px;
+            opacity: 1;
+            z-index: 2;
+            bottom: 0px;
+        }
+
+        div#logInButton {
+            {#        opacity: 0;#}
+
+        }
+
+        div#categoriesId {
+            top: 35px;
+            background-color: red;
+{#            z-index: 2;#}
+{#opacity: 0.2;#}
+        }
+
+        div#searchEngineId {
+            top: 0px;
+            background-color: red;
+{#            z-index: 2;#}
+        }
+
+        #logInFrame:hover >#logInForm {
+            left: 0px;
+            opacity: 1;
+            transition-property: all;
+            transition-duration: 0.1s;
+        }
+
+        div#logInButton {
+            -webkit-animation: logInButtonAnimacion 20s;
+            animation: primeraAnimacion 20s linear 2s infinite alternate;
+        }
+
+        @-webkit-keyframes logInButtonAnimacion{
+            0%{background-color: #1ab7ea;}
+            25%{background-color: yellow;}
+            50%{background-color: blue;}
+            100%{background-color: green;}
+        }
+    </style>
+
+    <body id="chantaje" style="background-color: pink; width: 100%; height: 100%;">
+
+        <div
+            style="background-color: green; 
+            {#            height: 100%;#}
+            position: absolute;
+            right: 0px;
+            left: 250px;
+            top: 0px;
+            bottom: 0px;
+            overflow-y: scroll;">
+            {{ include('BeitechBundle:Default:presentationProduct.html.twig', {
+                    form_amount_visits_form_ajax: amount_visits_form_ajax,
+                    id_amount_visits_form_ajax: 'amount-visits-ajax'
+            }) }}
+        </div>
+
+        <div
+            id="searchEngineId"
+            style="background-color: red; 
+            height: 35px; 
+            width: 250px; 
+            {#                top: 0px;#}
+            left: 0px;
+            position: absolute;">
+            {{ include('BeitechBundle:Default:searchEngine.html.twig', {
+                            form_increase_amount_view_video_form_ajax: increase_amount_view_video_form_ajax,
+                            id_increase_amount_view_video_form_ajax: 'increase-amount-view-video-ajax'
+                        }) }}
+        </div>
+
+        <div
+            id="categoriesId"
+            style="
+            {#             display: none;#}
+            background-color: white; 
+            position: absolute;
+            {#             height: 50%; #}
+            width: 250px; 
+            {#             top: 35px;#}
+            left: 0px;
+            bottom: 0px;
+            overflow-y: scroll;">
+            {{ include('BeitechBundle:Default:categories.html.twig') }}
+        </div>        
+
+        <div id="logInFrame">
+            <div id="logInButton" style="
+                 background-color: #1ab7ea;  
+                 opacity: 1; 
+                 position: absolute;
+                 top: 0px;
+                 left: 0px;
+                 width: 35px;
+                 height: 35px;
+                 ">
+            </div>
+
+            <div id="logInForm" 
+                 style="
+                 {#         left: 0px;#}
+                 background-color: yellow;
+                 width: 250px;
+                 {#     height: 250%;#}
+                 position: absolute;
+                 transition-property: all;
+                 transition-duration: 0.5s;
+                 ">
+                {{ include('BeitechBundle:Default:logIn.html.twig', {
+                    form1: introduce_user_data_form_ajax,
+                    id1: 'introduce-user-data-ajax',
+                    form2: login_user_data_form_ajax,
+                    id2: 'login-user-data-ajax',
+                    form3: upload_product_form_ajax,
+                    id3: 'upload-product-ajax',
+                    form4: introduce_setlist_data_form_ajax,
+                    id4: 'introduce-setlist-data-ajax',
+                    form5: add_product_setlist_form_ajax,
+                    id5: 'add-product-setlist-ajax',
+                    form6: upload_keywords_form_ajax,
+                    id6: 'upload-keywords-ajax'
+                }) }}
+            </div>
+
+        </div>
+    </body>
+{% endblock %}
